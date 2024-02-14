@@ -14,7 +14,7 @@ public class Answer {
     @Override
     public String toString() {
         return "Вывод " +
-                "Номер попытки = " + countTry +
+                "Осталось попыток = " + countTry +
                 ", Быков = " + countBull +
                 ", Коров = " + countCow;
     }

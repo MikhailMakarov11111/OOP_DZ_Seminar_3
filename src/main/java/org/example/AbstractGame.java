@@ -12,8 +12,10 @@ public abstract class AbstractGame implements Game {
         StringBuilder word = new StringBuilder();
         List<String> charList = generateCharList();
         Random random = new Random();
-        for (int i = 0; i < size; i++) {
-            word.append(charList.get(random.nextInt(charList.size())));
+        for (int i = 0; i < size; ++i) {
+           int index = random.nextInt(charList.size());
+           word.append(charList.get(index));
+           charList.remove(index);
         }
         return word.toString();
     }
@@ -47,8 +49,10 @@ public abstract class AbstractGame implements Game {
 
         if (countBull == word.length()) {
             status = GameStatus.WIN;
+            System.out.println("Загаданное слово - " + word);
         } else if (maxTry == 0) {
             status = GameStatus.END;
+            System.out.println("Загаданное слово - " + word);
         }
 
         return new Answer(maxTry, countBull, countCow);
@@ -58,4 +62,5 @@ public abstract class AbstractGame implements Game {
     public GameStatus getGameStatus() {
         return status;
     }
+
 }

@@ -1,7 +1,7 @@
 package org.example;
 
 public enum GameStatus {
-    INIT, START, END ("Вы проиграли"), WIN ("Вы выйграли");
+    INIT, START, END ("К сожалению Вы проиграли"), WIN ("Поздравляю Вы выйграли");
 
     private String description;
 
