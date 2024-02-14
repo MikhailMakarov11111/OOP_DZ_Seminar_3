@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        AbstractGame nGame = new RuGame();
+        AbstractGame nGame = new EnGame();
 
         nGame.start(4, 2);
         Scanner scanner = new Scanner(System.in);
