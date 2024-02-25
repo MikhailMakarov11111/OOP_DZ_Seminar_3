@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public interface Game {
     void start(Integer sizeWorld, Integer maxTry);

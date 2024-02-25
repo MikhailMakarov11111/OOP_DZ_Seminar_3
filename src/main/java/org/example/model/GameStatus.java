@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public enum GameStatus {
     INIT, START, END ("К сожалению Вы проиграли"), WIN ("Поздравляю Вы выйграли");

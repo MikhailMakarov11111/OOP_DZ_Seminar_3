@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.model.*;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в игру БЫКИ-КОРОВЫ");
         boolean res = true;
-        UserHistory history = new UserHistory();
         while (res) {
             System.out.println("Для того чтобы продолжить выберете действие: " + '\n' +
                     "1. Правила игры \n" +
@@ -82,20 +83,4 @@ public class Main {
 
     }
 
-    public static class UserHistory {
-
-        private List<String> history = new ArrayList<>();
-
-        public void addAction(String action) {
-            history.add(action);
-        }
-
-        public String getHistory() {
-            StringBuilder sb = new StringBuilder();
-            for (String action : history) {
-                sb.append(action).append("\n");
-            }
-            return sb.toString();
-        }
-    }
 }

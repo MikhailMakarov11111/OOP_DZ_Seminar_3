@@ -1,26 +1,34 @@
-package org.example;
+package org.example.model;
 
 import java.util.List;
 import java.util.Random;
 
 public abstract class AbstractGame implements Game {
     private String word;
-    private GameStatus status = GameStatus.INIT;
+    private GameStatus status;
     private Integer maxTry;
+
+    HistoryGame historyGame;
+
+    public AbstractGame() {
+        this.status = GameStatus.INIT;
+        historyGame = new HistoryGame();
+    }
 
     public String generateWord(Integer size) {
         StringBuilder word = new StringBuilder();
         List<String> charList = generateCharList();
         Random random = new Random();
         for (int i = 0; i < size; ++i) {
-           int index = random.nextInt(charList.size());
-           word.append(charList.get(index));
-           charList.remove(index);
+            int index = random.nextInt(charList.size());
+            word.append(charList.get(index));
+            charList.remove(index);
         }
         return word.toString();
     }
 
     public abstract List<String> generateCharList();
+
 
     @Override
     public void start(Integer sizeWorld, Integer maxTry) {
@@ -49,12 +57,12 @@ public abstract class AbstractGame implements Game {
 
         if (countBull == word.length()) {
             status = GameStatus.WIN;
-            System.out.println("Загаданное слово - " + word);
         } else if (maxTry == 0) {
             status = GameStatus.END;
-            System.out.println("Загаданное слово - " + word);
         }
-
+        historyGame.addHistoryActions("Осталось попыток = " + maxTry +
+                ", Быков = " + countBull +
+                ", Коров = " + countCow);
         return new Answer(maxTry, countBull, countCow);
     }
 

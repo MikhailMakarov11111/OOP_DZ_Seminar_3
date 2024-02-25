@@ -1,17 +1,16 @@
-package org.example;
+package org.example.model;
 
-import org.example.AbstractGame;
+import org.example.model.AbstractGame;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnGame extends AbstractGame {
+public class NumberGame extends AbstractGame {
     @Override
     public List<String> generateCharList() {
         List<String> result = new ArrayList<>();
-
-        for (int i = 'a'; i <= 'z'; i++) {
-            result.add(String.valueOf((char) i));
+        for (int i = 0; i < 9; i++) {
+            result.add((String.valueOf(i)));
         }
         return result;
     }

@@ -1,19 +1,16 @@
-package org.example;
-
-import org.example.AbstractGame;
+package org.example.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RuGame extends AbstractGame {
+public class EnGame extends AbstractGame {
     @Override
     public List<String> generateCharList() {
         List<String> result = new ArrayList<>();
 
-        for (int i = 'а'; i <= 'я'; i++) {
+        for (int i = 'a'; i <= 'z'; i++) {
             result.add(String.valueOf((char) i));
         }
-        result.add("ё");
         return result;
     }
 }
