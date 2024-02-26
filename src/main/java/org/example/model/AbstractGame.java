@@ -29,6 +29,13 @@ public abstract class AbstractGame implements Game {
 
     public abstract List<String> generateCharList();
 
+    public HistoryGame getHistoryGame() {
+        return historyGame;
+    }
+
+    public String getWord() {
+        return word;
+    }
 
     @Override
     public void start(Integer sizeWorld, Integer maxTry) {
